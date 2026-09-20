@@ -11,6 +11,9 @@ app = FastAPI(
 
 app.include_router(users_router)
 
+@app.get("/health") 
+def health()  : 
+    return {"status":"health"}
 
 @app.get("/")
 def home():

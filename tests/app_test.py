@@ -14,7 +14,12 @@ def test_home():
     assert response.json() == {
         "message": "Welcome to the API"
     }
-    
+
+def test_health():
+    response = client.get("/health")
+
+    assert response.status_code == 200
+    assert response.json() == {"status":"health"}
 
 def test_get_all() : 
     response = client.get("/users/all")
